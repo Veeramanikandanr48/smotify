@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "70%", // Set the container width to 80% of the screen width
+    width: "70%",
     margin: "auto",
     padding: theme.spacing(6),
     borderRadius: theme.shape.borderRadius,
@@ -15,39 +15,39 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   button: {
-    backgroundColor: "#8a2be2", // Purple background color
-    color: "#fff", // White text color
-    border: "2px solid #8a2be2", // Purple border
-    borderRadius: 20, // Border radius
-    marginTop: theme.spacing(4), // Adjust top margin
+    backgroundColor: "#8a2be2",
+    color: "#fff",
+    border: "2px solid #8a2be2",
+    borderRadius: 20,
+    marginTop: theme.spacing(4),
     padding: "14px",
   },
   slider: {
     "& .MuiSlider-rail": {
-      backgroundColor: "#ced4da", // Background color for the empty slider
-      height: 9, // Adjust the thickness of the track here
-      borderRadius: 8, // Adjust the border radius to match the thumb
+      backgroundColor: "#ced4da",
+      height: 9,
+      borderRadius: 8,
     },
     "& .MuiSlider-track": {
-      backgroundColor: "#8a2be2", // Color for the filled slider
-      height: 9, // Adjust the thickness of the filled part here
-      borderRadius: 8, // Adjust the border radius to match the thumb
+      backgroundColor: "#8a2be2",
+      height: 9,
+      borderRadius: 8,
     },
     "& .MuiSlider-thumb": {
-      backgroundColor: "#fff", // Color for the slider thumb
+      backgroundColor: "#fff",
       width: 16,
       height: 16,
       marginTop: -4,
       marginLeft: -8,
-      border: "2px solid #8a2be2", // Border for the slider thumb
+      border: "2px solid #8a2be2",
     },
     "& .MuiSlider-markLabel": {
       textAlign: "left",
       whiteSpace: "nowrap",
-      transform: "translateX(-10%)", // Move all labels to the left side by 10%
+      transform: "translateX(-10%)",
     },
     "& .MuiSlider-markLabel[data-index='5']": {
-      transform: "translateX(-50%)", // Move the label corresponding to $30 to the left side by 50%
+      transform: "translateX(-50%)",
     },
   },
 }));
@@ -86,10 +86,16 @@ const AutoTopUp = () => {
 
   return (
     <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center bg-dark w-100">
-      <div className={classes.root}> {/* Apply the makeStyles root class */}
+      <div className={classes.root}>
+        {" "}
+        {/* Apply the makeStyles root class */}
         <div className="card p-5 shadow-lg rounded-lg">
           <div className="d-flex align-items-center justify-content-between">
-            <Typography variant="h5" gutterBottom style={{ fontWeight: "bold" }}>
+            <Typography
+              variant="h5"
+              gutterBottom
+              style={{ fontWeight: "bold" }}
+            >
               Setup Auto Top-Up
               <Switch
                 checked={autoTopUp}
@@ -98,46 +104,51 @@ const AutoTopUp = () => {
               />
             </Typography>
           </div>
-          <Typography className="mb-4 text-secondary" variant="h6" gutterBottom style={{fontSize:'18px' }}>
-            Once the credit goes below a minimum threshold of <span className="text-primary">50</span>, we will auto-purchase <span className="text-primary">1200</span> credits and add them to your account.{" "}
-            <u style={{ fontWeight: "bold" }}>Learn more</u>
+          <Typography
+            className="mb-4 text-secondary"
+            variant="h6"
+            gutterBottom
+            style={{ fontSize: "18px" }}
+          >
+            Once the credit goes below a minimum threshold of{" "}
+            <span className="text-primary">50</span>, we will auto-purchase{" "}
+            <span className="text-primary">1200</span> credits and add them to
+            your account. <u style={{ fontWeight: "bold" }}>Learn more</u>
           </Typography>
           {autoTopUp && (
             <div className="mb-3">
               <Slider
-  value={creditValue}
-  onChange={handleSliderChange}
-  step={step}
-  marks={marks.map((mark) => ({
-    ...mark,
-    label: (
-      <Typography variant="body2" gutterBottom>
-        <span style={{ fontWeight: "bold" }}>
-          {mark.label.split("<br />")[0]}
-        </span>
-        <br />
-        <span>
-        {mark.label.split("<br />")[1]}</span>
-      </Typography>
-    ),
-  }))}
-  min={minCreditValue}
-  max={maxCreditValue}
-  valueLabelDisplay="off"
-  className={classes.slider}
-/>
-
+                value={creditValue}
+                onChange={handleSliderChange}
+                step={step}
+                marks={marks.map((mark) => ({
+                  ...mark,
+                  label: (
+                    <Typography variant="body2" gutterBottom>
+                      <span style={{ fontWeight: "bold" }}>
+                        {mark.label.split("<br />")[0]}
+                      </span>
+                      <br />
+                      <span>{mark.label.split("<br />")[1]}</span>
+                    </Typography>
+                  ),
+                }))}
+                min={minCreditValue}
+                max={maxCreditValue}
+                valueLabelDisplay="off"
+                className={classes.slider}
+              />
             </div>
           )}
           <div>
             {autoTopUp && (
               <Button
-              variant="contained"
-              className={`${classes.button} mt-4`}
-              onClick={handleConfirmAutoPurchase}
-            >
-              Confirm auto-purchase
-            </Button>
+                variant="contained"
+                className={`${classes.button} mt-4`}
+                onClick={handleConfirmAutoPurchase}
+              >
+                Confirm auto-purchase
+              </Button>
             )}
           </div>
         </div>
