@@ -1,12 +1,10 @@
 # Auto Top-Up Application
+![Auto Top-Up Application](https://github.com/Veeramanikandanr48/smotify/assets/119089869/ec53684d-d38c-41fa-841e-fd0b295d944c)
 
 ## Overview
 
 The Auto Top-Up Application is a web application designed to automate the process of adding credits to a user's account when their credit balance falls below a certain threshold. This project utilizes React.js and Material-UI for the frontend interface.
 
-## Screenshot
-
-![Auto Top-Up Application](https://github.com/Veeramanikandanr48/smotify/assets/119089869/ec53684d-d38c-41fa-841e-fd0b295d944c)
 
 ## Features
 
