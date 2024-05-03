@@ -19,13 +19,13 @@ The Auto Top-Up Application is a web application designed to automate the proces
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/auto-top-up-app.git
+   git clone https://github.com/Veeramanikandanr48/smotify.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd auto-top-up-app
+   cd smotify
    ```
 
 3. Install dependencies:
